@@ -11,9 +11,12 @@ CACHE=$PROJNAME.Services.Cache
 WEBAPI=$PROJNAME.API
 MVC=$PROJNAME.UI.Web.MVC
 
+# helper function - createbranch
 createbranch() { 
   git checkout -b $1 
 }
+
+# helper function - mergebranch
 mergebranch() {  
   git checkout master
   git merge $1
@@ -56,8 +59,8 @@ dotnet new classlib -n $MODELS
 cd $PROJHOME/$MODELS
 dotnet add package System.Linq.Queryable
 dotnet add package System.Data.DataSetExtensions
-rm Class1.cs Properties/AssemblyInfo.cs
 dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
+rm Class1.cs Properties/AssemblyInfo.cs
 
 cd $PROJHOME/$TESTS && dotnet add reference ../$MODELS/$MODELS.csproj
 cd $PROJHOME && dotnet sln add $MODELS/$MODELS.csproj
@@ -66,20 +69,22 @@ git add .
 git commit -am "Initial commit."
 
 createbranch implement_data_access_layer
-
+###################################### START HERE TOMORROW ###################################
 dotnet new classlib -n $NHIBERNATE
 cd $PROJHOME/$NHIBERNATE
 dotnet add package System.Linq.Queryable
+dotnet add package NHibernate
+dotnet add package Log4Net
+dotnet add package StructureMap
 dotnet add reference ../$MODELS/$MODELS.csproj
-dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
+dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
 rm Class1.cs
 
-cd $PROJHOME/$IOC && dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
 cd $PROJHOME/$TESTS && dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
 cd $PROJHOME && dotnet sln add $NHIBERNATE/$NHIBERNATE.csproj
 
 mergebranch implement_data_access_layer
-createbranch implement_serivces_layer
+createbranch implement_business_logic_layer
 
 dotnet new classlib -n $SERVICES
 cd $PROJHOME/$SERVICES
@@ -91,7 +96,7 @@ rm Class1.cs
 cd $PROJHOME/$TESTS && dotnet add reference ../$SERVICES/$SERVICES.csproj
 cd $PROJHOME && dotnet sln add $SERVICES/$SERVICES.csproj
 
-mergebranch implement_serivces_layer
+mergebranch implement_business_logic_layer
 createbranch implement_api
 
 dotnet new webapi -n $WEBAPI

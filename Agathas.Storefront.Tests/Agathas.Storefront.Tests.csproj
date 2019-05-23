@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Agathas.Storefront.Infrastructure\Agathas.Storefront.Infrastructure.csproj" />
     <ProjectReference Include="..\Agathas.Storefront.Models\Agathas.Storefront.Models.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.Repository.NHibernate\Agathas.Storefront.Repository.NHibernate.csproj" />
   </ItemGroup>
 
 </Project>

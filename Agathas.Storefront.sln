@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.Models", "Agathas.Storefront.Models\Agathas.Storefront.Models.csproj", "{E4CACF20-8C2E-4382-B523-425CB37A0B03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.Repository.NHibernate", "Agathas.Storefront.Repository.NHibernate\Agathas.Storefront.Repository.NHibernate.csproj", "{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,5 +60,17 @@ Global
 		{E4CACF20-8C2E-4382-B523-425CB37A0B03}.Release|x64.Build.0 = Release|Any CPU
 		{E4CACF20-8C2E-4382-B523-425CB37A0B03}.Release|x86.ActiveCfg = Release|Any CPU
 		{E4CACF20-8C2E-4382-B523-425CB37A0B03}.Release|x86.Build.0 = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|x64.Build.0 = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Debug|x86.Build.0 = Debug|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|Any CPU.Build.0 = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|x64.ActiveCfg = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|x64.Build.0 = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|x86.ActiveCfg = Release|Any CPU
+		{296BDEE8-1BDD-4858-A29C-BFEFCCAE5907}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
