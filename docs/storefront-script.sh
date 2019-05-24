@@ -38,6 +38,8 @@ cd $PROJHOME/$TESTS
 dotnet add package Moq  
 dotnet add package FluentAssertions
 dotnet add package System.Linq.Queryable
+dotnet add package System.Data.SQLite.Core
+
 rm UnitTest1.cs
 cd $PROJHOME && dotnet sln add $TESTS/$TESTS.csproj
 

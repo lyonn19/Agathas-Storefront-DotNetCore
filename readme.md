@@ -1,4 +1,4 @@
-Agatha's Storefront in .NET Core 
+Agatha's Clothing Store in .NET Core 
 ====================================================================================
 On-going work in progress.  Agatha's Storefront is the sample application from the [Professional ASP.NET Design Patterns][1] book by [Scott Millett][2].  Code was a litle dated and I was a littled bored so I decided work on getting it to .NET Core 2.0 and use Web API instead of the separate controllers class.
 
