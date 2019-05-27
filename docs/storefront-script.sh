@@ -72,7 +72,7 @@ git add .
 git commit -am "Initial commit."
 
 createbranch implement_data_access_layer
-###################################### START HERE TOMORROW ###################################
+
 dotnet new classlib -n $NHIBERNATE
 cd $PROJHOME/$NHIBERNATE
 dotnet add package System.Linq.Queryable
@@ -87,17 +87,32 @@ cd $PROJHOME/$TESTS && dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
 cd $PROJHOME && dotnet sln add $NHIBERNATE/$NHIBERNATE.csproj
 
 mergebranch implement_data_access_layer
+
 createbranch implement_business_logic_layer
 
 dotnet new classlib -n $SERVICES
 cd $PROJHOME/$SERVICES
 dotnet add package System.Linq.Queryable
-dotnet add reference ../$MODELS/$MODELS.csproj
+dotnet add package AutoMapper
+dotnet add package System.Data.DataSetExtensions
+#dotnet add reference ../$MODELS/$MODELS.csproj
 dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
 rm Class1.cs
 
 cd $PROJHOME/$TESTS && dotnet add reference ../$SERVICES/$SERVICES.csproj
 cd $PROJHOME && dotnet sln add $SERVICES/$SERVICES.csproj
+
+dotnet new classlib -n $CACHE
+cd $PROJHOME/$CACHE
+dotnet add package System.Linq.Queryable
+dotnet add package Microsoft.AspNetCore.Http
+dotnet add reference ../$MODELS/$MODELS.csproj
+dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
+dotnet add reference ../$SERVICES/$SERVICES.csproj
+rm Class1.cs
+
+cd $PROJHOME/$TESTS && dotnet add reference ../$CACHE/$CACHE.csproj
+cd $PROJHOME && dotnet sln add $CACHE/$CACHE.csproj
 
 mergebranch implement_business_logic_layer
 createbranch implement_api
