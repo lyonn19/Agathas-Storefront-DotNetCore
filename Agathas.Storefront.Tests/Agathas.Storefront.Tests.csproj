@@ -22,6 +22,7 @@
     <ProjectReference Include="..\Agathas.Storefront.Repository.NHibernate\Agathas.Storefront.Repository.NHibernate.csproj" />
     <ProjectReference Include="..\Agathas.Storefront.Services\Agathas.Storefront.Services.csproj" />
     <ProjectReference Include="..\Agathas.Storefront.Services.Cache\Agathas.Storefront.Services.Cache.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.API\Agathas.Storefront.API.csproj" />
   </ItemGroup>
 
 </Project>

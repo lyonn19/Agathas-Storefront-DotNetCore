@@ -17,7 +17,7 @@ namespace Agathas.Storefront.Model.Tests.Order_Specs {
 
     [SetUp]
     public void Given() {
-      DomainEvents.DomainEventHandlerFactory = new StubDomaubinEventHandlerFactory();
+      DomainEvents.DomainEventHandlerFactory = new StubDomainEventHandlerFactory();
 
       _order = new Order();
 

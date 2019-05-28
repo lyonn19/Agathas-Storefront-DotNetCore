@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.Services.Cache", "Agathas.Storefront.Services.Cache\Agathas.Storefront.Services.Cache.csproj", "{64998809-F759-445F-8943-5418FDE6A543}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agathas.Storefront.API", "Agathas.Storefront.API\Agathas.Storefront.API.csproj", "{479FE728-6408-457C-A874-1786A05B12E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,5 +102,17 @@ Global
 		{64998809-F759-445F-8943-5418FDE6A543}.Release|x64.Build.0 = Release|Any CPU
 		{64998809-F759-445F-8943-5418FDE6A543}.Release|x86.ActiveCfg = Release|Any CPU
 		{64998809-F759-445F-8943-5418FDE6A543}.Release|x86.Build.0 = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|x64.Build.0 = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Debug|x86.Build.0 = Debug|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|x64.ActiveCfg = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|x64.Build.0 = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|x86.ActiveCfg = Release|Any CPU
+		{479FE728-6408-457C-A874-1786A05B12E4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

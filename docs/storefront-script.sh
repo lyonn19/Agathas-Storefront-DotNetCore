@@ -48,7 +48,6 @@ dotnet new classlib -n $INFRASTRUCTURE
 cd $PROJHOME/$INFRASTRUCTURE
 dotnet add package System.Linq.Queryable
 dotnet add package log4net
-dotnet add package StructureMap
 dotnet add package Microsoft.AspNetCore.Http
 dotnet add package Microsoft.AspNetCore.Http.Extensions
 dotnet add package System.Data.DataSetExtensions
@@ -78,7 +77,6 @@ cd $PROJHOME/$NHIBERNATE
 dotnet add package System.Linq.Queryable
 dotnet add package NHibernate
 dotnet add package Log4Net
-dotnet add package StructureMap
 dotnet add reference ../$MODELS/$MODELS.csproj
 dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
 rm Class1.cs
@@ -120,8 +118,11 @@ createbranch implement_api
 dotnet new webapi -n $WEBAPI
 cd $PROJHOME/$WEBAPI
 dotnet add package System.Linq.Queryable
+dotnet add package Autofac.Extensions.DependencyInjection
 dotnet add reference ../$MODELS/$MODELS.csproj
+dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
 dotnet add reference ../$SERVICES/$SERVICES.csproj
+dotnet add reference ../$CACHE/$CACHE.csproj
 
 cd $PROJHOME/$TESTS && dotnet add reference ../$WEBAPI/$WEBAPI.csproj
 cd $PROJHOME && dotnet sln add $WEBAPI/$WEBAPI.csproj

@@ -7,7 +7,7 @@ Agatha's Storefront:
   - Shows how Martin Fowler's enterprise patterns fit into an enterprise-level ASP.NET site.
   - Provides details on how to layer an ASP.NET application and separate your concerns and responsibilities.
   - Details AJAX patterns using JQuery and Json.
-  - Shares best practice tools for ASP.NET such as AutoMapper, NHibernate, and StructureMap.
+  - Shares best practice tools for ASP.NET such as AutoMapper, NHibernate, and Autofac.
   - Uncovers tips for separating a site's UX and presentation layer from the pluggable data access layer and business logic layer.
 
 [1]: http://www.wrox.com/WileyCDA/WroxTitle/productCd-0470292784.html
