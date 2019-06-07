@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Agathas.Storefront.Controllers.DTOs {
+namespace Agathas.Storefront.API.Controllers.DTOs {
   public class BasketQtyUpdateRequest {
     public BasketItemUpdateRequest[] Items { get; set; }
   }

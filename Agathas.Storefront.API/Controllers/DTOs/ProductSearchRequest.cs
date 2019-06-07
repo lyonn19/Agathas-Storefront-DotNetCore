@@ -2,7 +2,7 @@
 
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 
-namespace Agathas.Storefront.Controllers.DTOs {
+namespace Agathas.Storefront.API.Controllers.DTOs {
   public class ProductSearchRequest {    
     public int CategoryId { get; set; }    
     public int[] ColorIds { get; set; }    

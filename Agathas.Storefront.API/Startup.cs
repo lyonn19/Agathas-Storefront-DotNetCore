@@ -20,21 +20,19 @@ namespace Agathas.Storefront.API {
       Configuration = configuration;
     }
 
-    public void ConfigureContainer(ContainerBuilder builder) {
-      builder.RegisterModule(new AutofacModule());      
-    }
-
     // This method gets called by the runtime. Use this method to add services to the container.
     public IServiceProvider ConfigureServices(IServiceCollection services) { 
-     services.AddCors();
-     services.AddResponseCompression();
-     services.AddResponseCaching();
+      services.AddCors();
+      services.AddResponseCompression();
+      services.AddResponseCaching();
       services.AddHealthChecks();
+      services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2); 
 
       var containerBuilder = new ContainerBuilder();
       containerBuilder.RegisterModule<AutofacModule>();
       containerBuilder.Populate(services);
+      
       var container = containerBuilder.Build();
       return new AutofacServiceProvider(container);
     }

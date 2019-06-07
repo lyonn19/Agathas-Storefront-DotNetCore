@@ -70,7 +70,7 @@ cd $PROJHOME && dotnet sln add $MODELS/$MODELS.csproj
 git add .
 git commit -am "Initial commit."
 
-createbranch implement_data_access_layer
+createbranch complete_implementing_base_data_layer
 
 dotnet new classlib -n $NHIBERNATE
 cd $PROJHOME/$NHIBERNATE
@@ -84,9 +84,9 @@ rm Class1.cs
 cd $PROJHOME/$TESTS && dotnet add reference ../$NHIBERNATE/$NHIBERNATE.csproj
 cd $PROJHOME && dotnet sln add $NHIBERNATE/$NHIBERNATE.csproj
 
-mergebranch implement_data_access_layer
+mergebranch complete_implementing_base_data_layer
 
-createbranch implement_business_logic_layer
+createbranch implement_base_business_logic_layer
 
 dotnet new classlib -n $SERVICES
 cd $PROJHOME/$SERVICES
@@ -112,8 +112,8 @@ rm Class1.cs
 cd $PROJHOME/$TESTS && dotnet add reference ../$CACHE/$CACHE.csproj
 cd $PROJHOME && dotnet sln add $CACHE/$CACHE.csproj
 
-mergebranch implement_business_logic_layer
-createbranch implement_api
+mergebranch implement_base_business_logic_layer
+createbranch implement_base_presentation_layer
 
 dotnet new webapi -n $WEBAPI
 cd $PROJHOME/$WEBAPI
@@ -127,9 +127,6 @@ dotnet add reference ../$CACHE/$CACHE.csproj
 cd $PROJHOME/$TESTS && dotnet add reference ../$WEBAPI/$WEBAPI.csproj
 cd $PROJHOME && dotnet sln add $WEBAPI/$WEBAPI.csproj
 
-mergebranch implement_api
-createbranch implement_presentation_layer
-
 dotnet new webapi -n $MVC
 cd $PROJHOME/$MVC
 dotnet add package System.Linq.Queryable
@@ -138,6 +135,6 @@ dotnet add reference ../$MODELS/$MODELS.csproj
 cd $PROJHOME/$TESTS && dotnet add reference ../$MVC/$MVC.csproj
 cd $PROJHOME && dotnet sln add $MVC/$MVC.csproj
 
-mergebranch implement_presentation_layer
+mergebranch mergebranch implement_base_presentation_layer
 
 cd $PROJHOME && dotnet build && dotnet run --project $MVC
