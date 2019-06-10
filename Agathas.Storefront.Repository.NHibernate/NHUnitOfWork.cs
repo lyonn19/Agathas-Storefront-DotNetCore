@@ -4,7 +4,6 @@ using Web = Microsoft.AspNetCore.Http;
 using NHibernate;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Infrastructure.UnitOfWork;
 using Agathas.Storefront.Repository.NHibernate.SessionStorage;
 
 namespace Agathas.Storefront.Repository.NHibernate {

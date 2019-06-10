@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Infrastructure.UnitOfWork;
 using Agathas.Storefront.Model.Basket;
 using Agathas.Storefront.Model.Products;
 using Agathas.Storefront.Model.Shipping;

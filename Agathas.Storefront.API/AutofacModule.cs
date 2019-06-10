@@ -12,12 +12,12 @@ using NHibernate;
 using Agathas.Storefront.Repository.NHibernate;
 using NHRepos = Agathas.Storefront.Repository.NHibernate.Repositories;
 using Agathas.Storefront.Controllers.ActionArguments;
+using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Infrastructure.Domain.Events;
 using Agathas.Storefront.Infrastructure.Authentication;
 using Agathas.Storefront.Infrastructure.CookieStorage;
 using Agathas.Storefront.Infrastructure.Logging;
 using Agathas.Storefront.Infrastructure.Payments;
-using Agathas.Storefront.Infrastructure.UnitOfWork;
 using Agathas.Storefront.Infrastructure.Configuration;
 using Agathas.Storefront.Model.Basket;
 using Agathas.Storefront.Model.Categories;
@@ -67,7 +67,7 @@ namespace Agathas.Storefront.API {
       builder.RegisterType<CookieStorageService>().As<ICookieStorageService>().InstancePerLifetimeScope();
 
       // Application Settings                 
-      builder.RegisterType<WebConfigApplicationSettings>().As<IApplicationSettings>().InstancePerLifetimeScope();
+      builder.RegisterType<ApiConfigApplicationSettings>().As<IApplicationSettings>().InstancePerLifetimeScope();
 
       // Logger
       builder.RegisterType<Log4NetAdapter>().As<Agathas.Storefront.Infrastructure.Logging.ILogger>().InstancePerLifetimeScope();

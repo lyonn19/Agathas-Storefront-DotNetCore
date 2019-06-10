@@ -6,7 +6,8 @@ using NHibernate.Criterion;
 using Web = Microsoft.AspNetCore.Http;
 
 using Agathas.Storefront.Infrastructure.Querying;
-using Agathas.Storefront.Infrastructure.UnitOfWork;
+using Agathas.Storefront.Infrastructure.Domain;
+using Agathas.Storefront.Infrastructure.Helpers;
 using Agathas.Storefront.Model.Customers;
 using Agathas.Storefront.Repository.NHibernate.SessionStorage;
 

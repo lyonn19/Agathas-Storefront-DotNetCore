@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Agathas.Storefront.Infrastructure.Querying;
 
 namespace Agathas.Storefront.Infrastructure.Domain {

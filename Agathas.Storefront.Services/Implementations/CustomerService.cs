@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Infrastructure.UnitOfWork;
 using Agathas.Storefront.Model.Customers;
 using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Mapping;

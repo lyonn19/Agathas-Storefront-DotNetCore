@@ -135,6 +135,10 @@ dotnet add reference ../$MODELS/$MODELS.csproj
 cd $PROJHOME/$TESTS && dotnet add reference ../$MVC/$MVC.csproj
 cd $PROJHOME && dotnet sln add $MVC/$MVC.csproj
 
-mergebranch mergebranch implement_base_presentation_layer
+createbranch implement_base_presentation_layer
+
+#todo ---- work my way up from empty web project?
+
+mergebranch implement_base_presentation_layer
 
 cd $PROJHOME && dotnet build && dotnet run --project $MVC

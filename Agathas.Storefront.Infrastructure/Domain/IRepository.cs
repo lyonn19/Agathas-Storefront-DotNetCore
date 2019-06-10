@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Agathas.Storefront.Infrastructure.Domain {
   public interface IRepository<T, TId> : IReadOnlyRepository<T, TId> where T : IAggregateRoot {

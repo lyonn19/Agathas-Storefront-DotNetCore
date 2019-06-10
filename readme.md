@@ -4,7 +4,7 @@ On-going work in progress.  Agatha's Storefront is the sample application from t
 
 Agatha's Storefront:
 
-  -Demonstrates how to use some Gang of Four design patterns to improve your ASP.NET code.
+  - Demonstrates how to use some Gang of Four design patterns to improve your ASP.NET code.
   - Shows how Martin Fowler's enterprise patterns fit into an enterprise-level ASP.NET site.
   - Provides details on how to layer an ASP.NET application and separate your concerns and responsibilities.
   - Details AJAX patterns using JQuery and Json.

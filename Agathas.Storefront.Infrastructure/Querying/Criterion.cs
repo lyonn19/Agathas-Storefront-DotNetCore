@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+
+using Agathas.Storefront.Infrastructure.Helpers;
 
 namespace Agathas.Storefront.Infrastructure.Querying {
-  public class Criterion
-  {
+  public class Criterion {
     private string _propertyName;
     private object _value;
     private CriteriaOperator _criteriaOperator;
