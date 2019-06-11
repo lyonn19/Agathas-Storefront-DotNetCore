@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 
 using Agathas.Storefront.Infrastructure.Domain.Events;
-using Agathas.Storefront.Model.Categories;
-using Agathas.Storefront.Model.Orders;
-using Agathas.Storefront.Model.Orders.States;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Categories;
+using Agathas.Storefront.Models.Orders;
+using Agathas.Storefront.Models.Orders.States;
+using Agathas.Storefront.Models.Products;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Order_Specs {    
+namespace Agathas.Storefront.Models.Tests.Order_Specs {    
   [TestFixture]
   public class When_creating_a_new_order {
     private Order _order;

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Agathas.Storefront.Model.Customers {
+namespace Agathas.Storefront.Models.Customers {
   public class InvalidAddressException : Exception {
     public InvalidAddressException(string message) : base(message) { }
   }

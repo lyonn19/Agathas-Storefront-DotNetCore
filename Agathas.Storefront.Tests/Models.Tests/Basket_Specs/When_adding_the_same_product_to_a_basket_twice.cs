@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-using Agathas.Storefront.Model.Categories;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Categories;
+using Agathas.Storefront.Models.Products;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Basket_Specs {
+namespace Agathas.Storefront.Models.Tests.Basket_Specs {
   [TestFixture]
   public class When_adding_the_same_product_to_a_basket_twice {
     private Basket.Basket _basket;
@@ -50,12 +50,12 @@ namespace Agathas.Storefront.Model.Tests.Basket_Specs {
 
     [Test]
     public void Then_the_quantity_for_the_product_should_be_2() {
-      _basket.Items().FirstOrDefault(i => i.Product == _product).Qty.Should().Be(2);
+      _basket.Items.FirstOrDefault(i => i.Product == _product).Qty.Should().Be(2);
     }
 
     [Test]
     public void Then_the_line_total_for_the_product_should_equal_to_the_cost_of_2x_the_product() {
-      _basket.Items().FirstOrDefault(i => i.Product == _product).LineTotal()
+      _basket.Items.FirstOrDefault(i => i.Product == _product).LineTotal()
         .Should().Be(_product.Price * 2);
     }       
   }

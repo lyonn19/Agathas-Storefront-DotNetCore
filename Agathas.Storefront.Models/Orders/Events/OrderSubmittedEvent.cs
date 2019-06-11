@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain.Events;
 
-namespace Agathas.Storefront.Model.Orders.Events
+namespace Agathas.Storefront.Models.Orders.Events
 {
     public class OrderSubmittedEvent : IDomainEvent
     {

@@ -12,7 +12,7 @@ using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.CustomerService;
 
 namespace Agathas.Storefront.API.Controllers {
-  [ApiController]
+ [Route("api/logon")]
   public class AccountLogOnController : BaseAccountController {
     public AccountLogOnController(
             ILocalAuthenticationService authenticationService,
@@ -25,15 +25,12 @@ namespace Agathas.Storefront.API.Controllers {
                                                         formsAuthentication, actionArguments) { }
 
      
-    [Route("api/account/logon")]
     [HttpGet]
     public ActionResult<AccountView> LogOn() {
       AccountView accountView = InitializeAccountViewWithIssue(false, "");
       return accountView;  
     }
-
      
-    [Route("api/account/logon")]
     [HttpGet("{email}/{password}/{returnUrl}")]
     public ActionResult<AccountView> LogOn(string email, string password, string returnUrl) {
       User user = _authenticationService.Login(email, password);
@@ -42,19 +39,18 @@ namespace Agathas.Storefront.API.Controllers {
         _formsAuthentication.SetAuthenticationToken(user.AuthenticationToken);
 
         if (!String.IsNullOrEmpty(returnUrl)) return Redirect(returnUrl);
-        else return RedirectToAction("Index", "Home");
+        else return Redirect("/api/home");
       } else {
         AccountView accountView = InitializeAccountViewWithIssue(true,
             "Sorry we could not log you in. " +
             " Please try again.");
         accountView.CallBackSettings.ReturnUrl =
-                GetReturnActionFrom(returnUrl).ToString();
+                ActionArguments.GetReturnActionFrom(returnUrl).ToString();
 
         return accountView; 
       }
     }
 
-    [Route("api/account/receivetokenandlogon")]
     [HttpGet("{token}/{returnUrl}")]
     public ActionResult<AccountView> ReceiveTokenAndLogon(string token, string returnUrl) {
       User user = _externalAuthenticationService.GetUserDetailsFrom(token);
@@ -88,11 +84,10 @@ namespace Agathas.Storefront.API.Controllers {
       }
     }
 
-    [Route("api/account/signout")]
     [HttpGet]
     public ActionResult SignOut() {
       _formsAuthentication.SignOut();
-      return RedirectToAction("Index", "Home");
+      return Redirect("/api/home");
     }
 
     private AccountView InitializeAccountViewWithIssue(bool hasIssue, string message) {
@@ -105,7 +100,7 @@ namespace Agathas.Storefront.API.Controllers {
       string returnUrl = _actionArguments
             .GetValueForArgument(ActionArgumentKey.ReturnUrl);
       accountView.CallBackSettings.ReturnUrl =
-            GetReturnActionFrom(returnUrl).ToString();
+            ActionArguments.GetReturnActionFrom(returnUrl).ToString();
 
       return accountView;
     }

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Agathas.Storefront.Infrastructure.Domain;
 
-using Agathas.Storefront.Infrastructure.Domain;
-
-namespace Agathas.Storefront.Model.Categories {
+namespace Agathas.Storefront.Models.Categories {
   public interface ICategoryRepository : IReadOnlyRepository<Category,int> { }
 }

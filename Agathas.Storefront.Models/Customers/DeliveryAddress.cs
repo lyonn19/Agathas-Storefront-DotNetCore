@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Agathas.Storefront.Model.Customers {
+namespace Agathas.Storefront.Models.Customers {
   public class DeliveryAddress : Address {        
     public string Name { get; set; }
     public Customer Customer { get; set; }

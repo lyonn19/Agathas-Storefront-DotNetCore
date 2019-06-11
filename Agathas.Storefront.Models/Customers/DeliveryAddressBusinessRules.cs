@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Customers {
+namespace Agathas.Storefront.Models.Customers {
   public class DeliveryAddressBusinessRules {
     public static readonly BusinessRule NameRequired = 
             new BusinessRule("Name", "A delivery address must have a name.");

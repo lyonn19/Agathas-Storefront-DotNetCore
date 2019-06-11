@@ -1,7 +1,7 @@
 ﻿using System;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Products
+namespace Agathas.Storefront.Models.Products
 {
     public class ProductSize : EntityBase<int>, IProductAttribute
     {        

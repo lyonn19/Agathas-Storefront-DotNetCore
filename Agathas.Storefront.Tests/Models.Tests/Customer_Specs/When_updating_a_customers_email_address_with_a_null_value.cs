@@ -4,9 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Customer_Specs {
+namespace Agathas.Storefront.Models.Tests.Customer_Specs {
   [TestFixture]
   public class When_updating_a_customers_email_address_with_a_blank_value : with_a_valid_customer {        
     public override void When()  {

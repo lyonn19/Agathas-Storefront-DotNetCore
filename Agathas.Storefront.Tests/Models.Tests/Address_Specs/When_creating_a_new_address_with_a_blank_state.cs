@@ -4,9 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Address_Specs {
+namespace Agathas.Storefront.Models.Tests.Address_Specs {
   [TestFixture]
   public class When_creating_a_new_address_with_a_blank_state : Address {
     [Test]

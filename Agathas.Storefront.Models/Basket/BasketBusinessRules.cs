@@ -1,6 +1,6 @@
 ﻿using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Basket {
+namespace Agathas.Storefront.Models.Basket {
   public class BasketBusinessRules {
     public static readonly BusinessRule DeliveryOptionRequired =
                 new BusinessRule("DeliveryOption",

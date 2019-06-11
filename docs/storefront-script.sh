@@ -119,6 +119,7 @@ dotnet new webapi -n $WEBAPI
 cd $PROJHOME/$WEBAPI
 dotnet add package System.Linq.Queryable
 dotnet add package Autofac.Extensions.DependencyInjection
+dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection
 dotnet add reference ../$MODELS/$MODELS.csproj
 dotnet add reference ../$INFRASTRUCTURE/$INFRASTRUCTURE.csproj
 dotnet add reference ../$SERVICES/$SERVICES.csproj

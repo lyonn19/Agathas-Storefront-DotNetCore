@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Products;
-using Agathas.Storefront.Model.Shipping;
+using Agathas.Storefront.Models.Products;
+using Agathas.Storefront.Models.Shipping;
 
-namespace Agathas.Storefront.Model.Basket {
+namespace Agathas.Storefront.Models.Basket {
   public class Basket : EntityBase<Guid>, IAggregateRoot   {
     private IList<BasketItem> _items;
     private IDeliveryOption _deliveryOption;
@@ -26,6 +26,9 @@ namespace Agathas.Storefront.Model.Basket {
 
     public decimal ItemsTotal {
       get { return _items.Sum(i => i.Qty * i.Product.Price); }
+    }    
+    public IEnumerable<BasketItem> Items { 
+      get { return _items; } 
     }
 
     public void Add(Product product) {
@@ -57,8 +60,6 @@ namespace Agathas.Storefront.Model.Basket {
 
     public int NumberOfItemsInBasket() { return _items.Sum(i => i.Qty); }
 
-    public IEnumerable<BasketItem> Items() { return _items; }
-
     public decimal DeliveryCost() {
       return DeliveryOption.GetDeliveryChargeForBasketTotalOf(ItemsTotal);
     }
@@ -75,7 +76,7 @@ namespace Agathas.Storefront.Model.Basket {
       if (DeliveryOption == null)
         base.AddBrokenRule(BasketBusinessRules.DeliveryOptionRequired);
 
-      foreach (BasketItem item in this.Items()) {
+      foreach (BasketItem item in this.Items) {
         if (item.GetBrokenRules().Count() > 0)
           base.AddBrokenRule(BasketBusinessRules.ItemInvalid);
       }

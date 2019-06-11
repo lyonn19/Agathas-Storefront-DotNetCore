@@ -5,51 +5,47 @@ using System.Linq;
 using AutoMapper;
 
 using Agathas.Storefront.Infrastructure.Helpers;
-using Agathas.Storefront.Model;
-using Agathas.Storefront.Model.Basket;
-using Agathas.Storefront.Model.Categories;
-using Agathas.Storefront.Model.Customers;
-using Agathas.Storefront.Model.Orders;
-using Agathas.Storefront.Model.Orders.States;
-using Agathas.Storefront.Model.Products;
-using Agathas.Storefront.Model.Shipping;
+using Agathas.Storefront.Models;
+using Agathas.Storefront.Models.Basket;
+using Agathas.Storefront.Models.Categories;
+using Agathas.Storefront.Models.Customers;
+using Agathas.Storefront.Models.Orders;
+using Agathas.Storefront.Models.Orders.States;
+using Agathas.Storefront.Models.Products;
+using Agathas.Storefront.Models.Shipping;
 using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.Services {
-  public class AutoMapperBootStrapper {
-    public static void ConfigureAutoMapper() {
-      Mapper.Initialize(cfg => {
-        cfg.CreateMissingTypeMaps = true;
+  public class AutoMapperBootStrapper : Profile {
+    public AutoMapperBootStrapper() {
+      // Product Title
+      CreateMap<ProductTitle, ProductSummaryView>();
+      CreateMap<ProductTitle, ProductView>();
+      CreateMap<Product, ProductSummaryView>();
+      CreateMap<Product, ProductSizeOption>();
 
-        // Product Title
-        cfg.CreateMap<ProductTitle, ProductSummaryView>();
-        cfg.CreateMap<ProductTitle, ProductView>();
-        cfg.CreateMap<Product, ProductSummaryView>();
-        cfg.CreateMap<Product, ProductSizeOption>();
+      // Category
+      CreateMap<Category, CategoryView>();
 
-        // Category
-        cfg.CreateMap<Category, CategoryView>();
+      // IProductAttribute
+      CreateMap<IProductAttribute, Refinement>();
 
-        // IProductAttribute
-        cfg.CreateMap<IProductAttribute, Refinement>();
+      // Basket
+      CreateMap<DeliveryOption, DeliveryOptionView>();
+      CreateMap<BasketItem, BasketItemView>();
+      CreateMap<Basket, BasketView>();
 
-        // Basket
-        cfg.CreateMap<DeliveryOption, DeliveryOptionView>();
-        cfg.CreateMap<BasketItem, BasketItemView>();
-        cfg.CreateMap<Basket, BasketView>();
+      // Customer
+      CreateMap<Customer, CustomerView>();
+      CreateMap<DeliveryAddress, DeliveryAddressView>();
 
-        // Customer
-        cfg.CreateMap<Customer, CustomerView>();
-        cfg.CreateMap<DeliveryAddress, DeliveryAddressView>();
-
-        // Orders
-        cfg.CreateMap<Order, OrderView>();
-        cfg.CreateMap<OrderItem, OrderItemView>();
-        cfg.CreateMap<Address, DeliveryAddressView>();
-        cfg.CreateMap<Order, OrderSummaryView>()
-            .ForMember(dest => dest.IsSubmitted,
-                    opt => opt.MapFrom(s => s.Status == OrderStatus.Submitted ? true : false));       
-      });
+      // Orders
+      CreateMap<Order, OrderView>();
+      CreateMap<OrderItem, OrderItemView>();
+      CreateMap<Address, DeliveryAddressView>();
+      CreateMap<Order, OrderSummaryView>()
+          .ForMember(dest => dest.IsSubmitted,
+                  opt => opt.MapFrom(s => s.Status == OrderStatus.Submitted ? true : false));  
     }
   }
   public class MoneyFormatter {

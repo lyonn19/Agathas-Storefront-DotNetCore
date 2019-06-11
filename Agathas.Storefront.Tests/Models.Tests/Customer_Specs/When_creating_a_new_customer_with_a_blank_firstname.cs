@@ -5,10 +5,10 @@ using NUnit.Framework;
 using FluentAssertions;
 
 
-using Agathas.Storefront.Model;
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Customer_Specs {
+namespace Agathas.Storefront.Models.Tests.Customer_Specs {
   [TestFixture]
   public class When_creating_a_newthis_with_a_blank_firstname : Customer {
     [Test]

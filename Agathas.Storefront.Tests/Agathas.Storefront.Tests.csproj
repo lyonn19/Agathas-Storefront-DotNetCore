@@ -12,7 +12,7 @@
     <PackageReference Include="nunit" Version="3.11.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
-    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.110.0" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.111.0" />
     <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
   </ItemGroup>
 

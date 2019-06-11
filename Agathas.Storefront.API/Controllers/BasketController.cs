@@ -14,7 +14,7 @@ using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 
 namespace Agathas.Storefront.API.Controllers {    
-  [ApiController]
+  [Route("api/basket")]
   public class BasketController : ProductCatalogBaseController {
     private readonly IBasketService _basketService;
     private readonly ICookieStorageService _cookieStorageService;
@@ -26,7 +26,6 @@ namespace Agathas.Storefront.API.Controllers {
       _cookieStorageService = cookieStorageService;
     }
 
-    [Route("api/productcatalog/basket/detail")]
     [HttpGet]
     public ActionResult<BasketDetailView> Detail() {
       var basketView = new BasketDetailView();
@@ -45,7 +44,6 @@ namespace Agathas.Storefront.API.Controllers {
       return basketView;
     }
 
-    [Route("api/productcatalog/basket/removeitem")]
     [HttpPost("{productId}")]
     public BasketDetailView RemoveItem(int productId) {
       var request = new ModifyBasketRequest();
@@ -71,7 +69,6 @@ namespace Agathas.Storefront.API.Controllers {
       return basketDetailView;
     }
 
-    [Route("api/productcatalog/basket/updateshipping")]
     [HttpPost("{shippingServiceId}")]
     public BasketDetailView UpdateShipping(int shippingServiceId) {
       var request = new ModifyBasketRequest();
@@ -96,7 +93,6 @@ namespace Agathas.Storefront.API.Controllers {
       return basketDetailView;
     }
 
-    [Route("api/productcatalog/basket/update")]
     [HttpPost]
     public BasketDetailView UpdateItems(DTOs.BasketQtyUpdateRequest basketQtyUpdateRequest) {
       var request = new ModifyBasketRequest();
@@ -122,7 +118,6 @@ namespace Agathas.Storefront.API.Controllers {
       return basketDetailView;
     }
 
-    [Route("api/productcatalog/basket/add")]
     [HttpPost("{productId}")]
     public BasketSummaryView AddToBasket(int productId) {
       BasketSummaryView basketSummaryView = new BasketSummaryView();
@@ -140,8 +135,7 @@ namespace Agathas.Storefront.API.Controllers {
           SaveBasketSummaryToCookie(basketSummaryView.NumberOfItems,
                                     basketSummaryView.BasketTotal);
         } catch (BasketDoesNotExistException ex) {
-          LoggingFactory.GetLogger().Log(
-                  String.Format("Creating new basket because exception. {0}", ex.ToString()));
+          LoggingFactory.GetLogger().Log(ex.Message);
           createNewBasket = true;
         }
       }

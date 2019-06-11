@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Orders
+namespace Agathas.Storefront.Models.Orders
 {
     public class OrderItemBusinessRules
     {

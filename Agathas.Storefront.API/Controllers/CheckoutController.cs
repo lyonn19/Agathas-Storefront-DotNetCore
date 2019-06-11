@@ -17,7 +17,7 @@ using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.API.Controllers { 
-  [ApiController]
+  [Route("api/checkout")]
   public class CheckoutController : BaseController {
     private readonly ICookieStorageService _cookieStorageService;
     private readonly IBasketService _basketService;
@@ -38,7 +38,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/checkout")]
     [HttpGet]
     public ActionResult<OrderConfirmationView> Checkout() {
       var customerRequest = new GetCustomerRequest() {
@@ -67,14 +66,12 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/checkout/add")]
     [HttpGet]
     public ActionResult<DeliveryAddressView> AddDeliveryAddress() {
       return new DeliveryAddressView();
     }
 
     [Authorize]
-    [Route("api/checkout/add")]
     [HttpPost("{deliveryAddressView}")]
     public ActionResult AddDeliveryAddress(DeliveryAddressView deliveryAddressView) {
       var request = new DeliveryAddressAddRequest();
@@ -86,7 +83,6 @@ namespace Agathas.Storefront.API.Controllers {
       return Checkout().Result;
     }
 
-    [Route("api/checkout/placeorder")]
     [HttpGet]
     [Authorize]    
     public ActionResult PlaceOrder(FormCollection collection) {
@@ -105,8 +101,7 @@ namespace Agathas.Storefront.API.Controllers {
       _cookieStorageService.Save(CookieDataKeys.BasketTotal.ToString(),
                                   "0", DateTime.Now.AddDays(1));
 
-      return RedirectToAction("CreatePaymentFor", "Payment",
-                              new { orderId = response.Order.Id });
+      return Redirect(String.Format("/api/Payment/CreatePaymentFor/{0}", response.Order.Id));
     }
   }
 }

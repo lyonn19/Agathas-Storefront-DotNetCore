@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Agathas.Storefront.Model.Orders.States
+namespace Agathas.Storefront.Models.Orders.States
 {
     public enum OrderStatus
     {

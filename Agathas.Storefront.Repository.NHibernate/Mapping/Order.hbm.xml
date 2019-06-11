@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="Agathas.Storefront.Model.Orders"
-        assembly="Agathas.Storefront.Model">
+    namespace="Agathas.Storefront.Models.Orders"
+        assembly="Agathas.Storefront.Models">
 
   <class name="Order" table="Orders" lazy="false" >
 
@@ -22,7 +22,7 @@
                       access="field.camelcase-underscore" />
 
     <many-to-one name="ShippingService"
-                  class="Agathas.Storefront.Model.Shipping.ShippingService"
+                  class="Agathas.Storefront.Models.Shipping.ShippingService"
                   column="ShippingServiceId"
                   not-null="true"
 					  />
@@ -39,7 +39,7 @@
     </component>
 
 
-    <component name="DeliveryAddress" class="Agathas.Storefront.Model.Address">
+    <component name="DeliveryAddress" class="Agathas.Storefront.Models.Address">
       <property column="DeliveryAddressLine1" name="AddressLine1"/>
       <property column="DeliveryAddressLine2" name="AddressLine2"/>
       <property column="DeliveryCity" name="City"/>
@@ -50,7 +50,7 @@
 
 
     <many-to-one name="Customer"
-                 class="Agathas.Storefront.Model.Customers.Customer"
+                 class="Agathas.Storefront.Models.Customers.Customer"
                  column="CustomerId"
                  not-null="true"
 					  />

@@ -15,4 +15,23 @@
     <ProjectReference Include="..\Agathas.Storefront.Models\Agathas.Storefront.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Include="Mapping\Basket.hbm.xml" />
+    <EmbeddedResource Include="Mapping\BasketItem.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Brand.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Category.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Courier.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Customer.hbm.xml" />
+    <EmbeddedResource Include="Mapping\DeliveryAddress.hbm.xml" />
+    <EmbeddedResource Include="Mapping\DeliveryOption.hbm.xml" />
+    <EmbeddedResource Include="Mapping\IOrderState.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Order.hbm.xml" />
+    <EmbeddedResource Include="Mapping\OrderItem.hbm.xml" />
+    <EmbeddedResource Include="Mapping\Product.hbm.xml" />
+    <EmbeddedResource Include="Mapping\ProductColor.hbm.xml" />
+    <EmbeddedResource Include="Mapping\ProductSize.hbm.xml" />
+    <EmbeddedResource Include="Mapping\ProductTitle.hbm.xml" />
+    <EmbeddedResource Include="Mapping\ShippingService.hbm.xml" />
+  </ItemGroup>
+
 </Project>

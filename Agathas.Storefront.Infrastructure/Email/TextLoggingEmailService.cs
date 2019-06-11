@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
+
 using Agathas.Storefront.Infrastructure.Logging;
 
 namespace Agathas.Storefront.Infrastructure.Email {

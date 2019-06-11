@@ -1,7 +1,7 @@
-﻿using Agathas.Storefront.Model.Orders;
+﻿using Agathas.Storefront.Models.Orders;
 using NUnit.Framework;
 
-namespace Agathas.Storefront.Model.Tests.Order_Specs {
+namespace Agathas.Storefront.Models.Tests.Order_Specs {
   [TestFixture]
   public abstract class with_valid_order {
     [SetUp]

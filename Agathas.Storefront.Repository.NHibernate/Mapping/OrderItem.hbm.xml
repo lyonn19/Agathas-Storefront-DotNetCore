@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="Agathas.Storefront.Model.Orders"
-        assembly="Agathas.Storefront.Model">
+    namespace="Agathas.Storefront.Models.Orders"
+        assembly="Agathas.Storefront.Models">
 
   <class name="OrderItem" table="OrderItems" lazy="false" >
 
@@ -18,7 +18,7 @@
     </property>
 
     <many-to-one access="field.camelcase-underscore" name="Product"
-                     class="Agathas.Storefront.Model.Products.Product"
+                     class="Agathas.Storefront.Models.Products.Product"
                      column="ProductId"
                      cascade="none"
                      not-null="true"/>

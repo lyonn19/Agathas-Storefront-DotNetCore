@@ -5,6 +5,6 @@ using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Basket {
+namespace Agathas.Storefront.Models.Basket {
   public interface IBasketRepository : IRepository<Basket, Guid> { }
 }

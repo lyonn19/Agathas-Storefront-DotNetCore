@@ -5,7 +5,7 @@ using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Shipping
+namespace Agathas.Storefront.Models.Shipping
 {
     public class DeliveryOption : EntityBase<int>, IAggregateRoot, IDeliveryOption
     {

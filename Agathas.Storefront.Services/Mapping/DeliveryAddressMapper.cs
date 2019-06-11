@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Agathas.Storefront.Model.Customers;
+﻿using AutoMapper;
+
+using Agathas.Storefront.Models.Customers;
 using Agathas.Storefront.Services.ViewModels;
-using AutoMapper;
 
-namespace Agathas.Storefront.Services.Mapping
-{
-    public static class DeliveryAddressMapper
-    {
-        public static DeliveryAddressView ConvertToDeliveryAddressView(
-                                               this DeliveryAddress deliveryAddress)
-        {
-            return Mapper.Map<DeliveryAddress,
-                              DeliveryAddressView>(deliveryAddress);
-        }
+namespace Agathas.Storefront.Services.Mapping {
+  public static class DeliveryAddressMapper {
+    public static DeliveryAddressView ConvertToDeliveryAddressView(
+                                            this DeliveryAddress deliveryAddress,
+                                            IMapper mapper) {
+      return mapper.Map<DeliveryAddress, DeliveryAddressView>(deliveryAddress);
     }
-
+  }
 }

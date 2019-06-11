@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
 namespace Agathas.Storefront.Repository.NHibernate.SessionStorage {
   public static class SessionStorageFactory {
@@ -11,10 +6,10 @@ namespace Agathas.Storefront.Repository.NHibernate.SessionStorage {
 
     public static ISessionStorageContainer GetStorageContainer(IHttpContextAccessor context) {
       if (_nhSessionStorageContainer == null) {
-          if (context.HttpContext == null)
-            _nhSessionStorageContainer = new ThreadSessionStorageContainer();
-          else
-            _nhSessionStorageContainer = new HttpSessionContainer(context);
+        if (context.HttpContext == null)
+          _nhSessionStorageContainer = new ThreadSessionStorageContainer();
+        else
+          _nhSessionStorageContainer = new HttpSessionContainer(context);
       }
 
       return _nhSessionStorageContainer;

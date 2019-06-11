@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Categories;
-using Agathas.Storefront.Model.Orders;
-using Agathas.Storefront.Model.Orders.States;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Categories;
+using Agathas.Storefront.Models.Orders;
+using Agathas.Storefront.Models.Orders.States;
+using Agathas.Storefront.Models.Products;
 
-namespace Agathas.Storefront.Model.Tests.Order_Specs {
+namespace Agathas.Storefront.Models.Tests.Order_Specs {
   [TestFixture]
   public class When_paying_for_an_order_that_has_already_been_paid_for : Order {
     [Test]

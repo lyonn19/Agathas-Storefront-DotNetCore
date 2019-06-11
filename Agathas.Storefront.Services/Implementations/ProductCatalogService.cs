@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using AutoMapper;
+
 using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Infrastructure.Querying;
 using Agathas.Storefront.Infrastructure.Helpers;
-using Agathas.Storefront.Model.Categories;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Categories;
+using Agathas.Storefront.Models.Products;
 using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Mapping;
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
@@ -15,13 +17,16 @@ namespace Agathas.Storefront.Services.Implementations {
     private readonly IProductTitleRepository _productTitleRepository;
     private readonly IProductRepository _productRepository;
     private readonly ICategoryRepository _categoryRepository;
+    private readonly IMapper _mapper;
 
     public ProductCatalogService(IProductTitleRepository productTitleRepository,
                                     IProductRepository productRepository,
-                                    ICategoryRepository categoryRepository) {
+                                    ICategoryRepository categoryRepository,
+                                    IMapper mapper) {
       _productTitleRepository = productTitleRepository;
       _productRepository = productRepository;
       _categoryRepository = categoryRepository;
+      _mapper = mapper;
     }
 
     private IEnumerable<Product> GetAllProductsMatchingQueryAndSort(
@@ -49,7 +54,7 @@ namespace Agathas.Storefront.Services.Implementations {
                   PropertyNameHelper.ResolvePropertyName<ProductTitle>(pt => pt.Price) };
 
       response.Products = _productTitleRepository.FindBy(
-              productQuery, 0, 6).ConvertToProductViews();
+              productQuery, 0, 6).ConvertToProductViews(_mapper);
 
       return response;
     }
@@ -62,7 +67,7 @@ namespace Agathas.Storefront.Services.Implementations {
       var productsMatchingRefinement = 
               GetAllProductsMatchingQueryAndSort(request, productQuery);
 
-      response = productsMatchingRefinement.CreateProductSearchResultFrom(request);
+      response = productsMatchingRefinement.CreateProductSearchResultFrom(request, _mapper);
       response.SelectedCategoryName =
               _categoryRepository.FindBy(request.CategoryId).Name;
       return response;
@@ -72,14 +77,14 @@ namespace Agathas.Storefront.Services.Implementations {
       var response = new GetProductResponse();
       var productTitle = _productTitleRepository.FindBy(request.ProductId);
 
-      response.Product = productTitle.ConvertToProductDetailView();
+      response.Product = productTitle.ConvertToProductDetailView(_mapper);
       return response;
     }
 
     public GetAllCategoriesResponse GetAllCategories() {
       var response = new GetAllCategoriesResponse();
       var categories = _categoryRepository.FindAll();
-      response.Categories = categories.ConvertToCategoryViews();
+      response.Categories = categories.ConvertToCategoryViews(_mapper);
 
       return response;
     }

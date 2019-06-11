@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Basket_Specs {
+namespace Agathas.Storefront.Models.Tests.Basket_Specs {
   [TestFixture]
   public class When_not_selecting_a_delivery_option_for_a_basket {
     private Basket.Basket _basket;        

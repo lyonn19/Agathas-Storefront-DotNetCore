@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Orders;
+using Agathas.Storefront.Models.Orders;
 
-namespace Agathas.Storefront.Model.Customers {
+namespace Agathas.Storefront.Models.Customers {
   public class Customer : EntityBase<int>, IAggregateRoot {
     private IList<DeliveryAddress> _deliveryAddressBook =
                                             new List<DeliveryAddress>();

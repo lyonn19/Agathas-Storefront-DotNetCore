@@ -6,6 +6,7 @@ using Agathas.Storefront.Controllers.ViewModels;
 using Agathas.Storefront.Infrastructure.CookieStorage;
 
 namespace Agathas.Storefront.API.Controllers{
+  [ApiController]
   public class BaseController : ControllerBase {
     private readonly ICookieStorageService _cookieStorageService;
 
@@ -13,8 +14,8 @@ namespace Agathas.Storefront.API.Controllers{
       _cookieStorageService = cookieStorageService;
     }
 
-    [Route("api/{controller}/baskets")]
     [HttpGet]
+    [Route("basket-summary")]
     public BasketSummaryView GetBasketSummaryView() {
       string basketTotal = "";
       int numberOfItems = 0;
@@ -35,15 +36,13 @@ namespace Agathas.Storefront.API.Controllers{
       };
     }
 
-    [Route("api/{controller}/basket")]
     [HttpGet]
+    [Route("basketId")]
     public Guid GetBasketId() {
       string sBasketId = _cookieStorageService.Retrieve(CookieDataKeys.BasketId.ToString());
       Guid basketId = Guid.Empty;
 
-      if (!string.IsNullOrEmpty(sBasketId)) {
-        basketId = new Guid(sBasketId);
-      }
+      if (!string.IsNullOrEmpty(sBasketId)) { basketId = new Guid(sBasketId); }
 
       return basketId;
     }

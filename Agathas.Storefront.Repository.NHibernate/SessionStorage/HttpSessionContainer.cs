@@ -1,5 +1,4 @@
 ﻿using Web = Microsoft.AspNetCore.Http;
-
 using NHibernate;
 
 namespace Agathas.Storefront.Repository.NHibernate.SessionStorage {

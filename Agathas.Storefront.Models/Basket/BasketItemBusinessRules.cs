@@ -5,7 +5,7 @@ using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Basket {
+namespace Agathas.Storefront.Models.Basket {
   public class BasketItemBusinessRules {
     public static readonly BusinessRule BasketRequired =
         new BusinessRule("Basket", "A basket item must be related to a basket.");

@@ -1,7 +1,7 @@
 ﻿using System;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Orders
+namespace Agathas.Storefront.Models.Orders
 {
     public class Payment : ValueObjectBase
     {

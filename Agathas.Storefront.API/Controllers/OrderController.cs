@@ -14,7 +14,7 @@ using Agathas.Storefront.Services.Messaging.CustomerService;
 using Agathas.Storefront.Services.Messaging.OrderService;
 
 namespace Agathas.Storefront.API.Controllers {
-  [ApiController]    
+  [Route("api/order")]    
   public class OrderController : BaseController {
     private readonly ICustomerService _customerService;
     private readonly IOrderService _orderService;
@@ -30,8 +30,8 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/order")]
     [HttpGet]
+    [Route("")]
     public ActionResult<CustomersOrderSummaryView> List() {
       var request = new GetCustomerRequest() {
         CustomerIdentityToken = 
@@ -49,7 +49,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/order")]
     [HttpGet("{orderId}")]
     public ActionResult<CustomerOrderView> Detail(int orderId)  {
       var request = new GetOrderRequest() { OrderId = orderId };

@@ -5,9 +5,9 @@ using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Delivery_Address_Specs {
+namespace Agathas.Storefront.Models.Tests.Delivery_Address_Specs {
   [TestFixture]
   public class When_changing_the_name_of_a_delivery_address_to_an_invalid_value : with_a_valid_delivery_address {
     

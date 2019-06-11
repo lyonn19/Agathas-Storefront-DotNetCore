@@ -22,8 +22,7 @@ namespace Agathas.Storefront.Infrastructure.CookieStorage {
     public string Retrieve(string key) {
       //HttpCookie cookie = _context.HttpContext.Request.Cookies[key];
       var cookie = this._context.HttpContext.Request.Cookies[key];
-      if (cookie != String.Empty) // != null)
-          return cookie; //cookie.Value;
+      if (!string.IsNullOrEmpty(cookie)) return cookie; 
       return "";
     }
   }

@@ -1,11 +1,11 @@
 ﻿using System;
 
-using Agathas.Storefront.Model.Shipping;
+using Agathas.Storefront.Models.Shipping;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Shipping_Specs {
+namespace Agathas.Storefront.Models.Tests.Shipping_Specs {
   [TestFixture]
   public class When_determining_the_cost_of_delivery_with_a_basket_that_exceeds_the_free_delivery_threshold {
     private DeliveryOption _deliveryOption;

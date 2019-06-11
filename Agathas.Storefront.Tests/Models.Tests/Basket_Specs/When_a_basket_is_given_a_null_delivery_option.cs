@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
 
-using Agathas.Storefront.Model.Basket;
+using Agathas.Storefront.Models.Basket;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Basket_Specs {
+namespace Agathas.Storefront.Models.Tests.Basket_Specs {
   [TestFixture]
   public class When_a_basket_is_given_a_null_delivery_option {
     private Basket.Basket _basket;        

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Categories;
+using Agathas.Storefront.Models.Categories;
 
-namespace Agathas.Storefront.Model.Products {
+namespace Agathas.Storefront.Models.Products {
   public class ProductTitle : IAggregateRoot {
     public int Id { get; set; }
     public string Name { get; set; }

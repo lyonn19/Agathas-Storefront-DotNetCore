@@ -1,12 +1,12 @@
 ﻿using System.Linq;
 
-using Agathas.Storefront.Model.Basket;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Basket;
+using Agathas.Storefront.Models.Products;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Basket_Item_Specs {
+namespace Agathas.Storefront.Models.Tests.Basket_Item_Specs {
   [TestFixture]
   public class When_a_basket_item_is_created_with_a_null_basket {
     private BasketItem _basketItem;

@@ -5,7 +5,7 @@ using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Customers {
+namespace Agathas.Storefront.Models.Customers {
   public class CustomerBusinessRules {
     public static readonly BusinessRule FirstNameRequired = new BusinessRule(
                                   "FirstName", "A customer must have a first name.");

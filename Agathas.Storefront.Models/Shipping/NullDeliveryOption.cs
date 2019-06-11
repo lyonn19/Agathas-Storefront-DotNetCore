@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Agathas.Storefront.Model.Shipping
+namespace Agathas.Storefront.Models.Shipping
 {
     public class NullDeliveryOption : IDeliveryOption
     {

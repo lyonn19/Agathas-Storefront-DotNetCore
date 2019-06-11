@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Products;
 
-namespace Agathas.Storefront.Model.Orders
+namespace Agathas.Storefront.Models.Orders
 {
     public static class OrderItemFactory
     {

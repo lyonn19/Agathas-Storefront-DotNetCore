@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Web = Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
+using NHibernate;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Products;
-using NHibernate;
+using Agathas.Storefront.Models.Products;
 
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
   public class ProductRepository : Repository<Product, int>, IProductRepository {
-    private readonly Web.IHttpContextAccessor _context;
+    private readonly IHttpContextAccessor _context;
 
-    public ProductRepository(IUnitOfWork uow, Web.IHttpContextAccessor context)
+    public ProductRepository(IUnitOfWork uow, IHttpContextAccessor context)
       : base(uow, context) { }
 
     public override void AppendCriteria(ICriteria criteria) {

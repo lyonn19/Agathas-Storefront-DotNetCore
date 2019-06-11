@@ -14,7 +14,7 @@ using Agathas.Storefront.Services.Messaging.CustomerService;
 using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.API.Controllers { 
-  [ApiController]
+  [Route("api/customer")]
   [Authorize]    
   public class CustomerController : BaseController {
     private readonly ICustomerService _customerService;
@@ -28,7 +28,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer")]
     [HttpGet]
     public ActionResult<CustomerDetailView> Detail() {
       GetCustomerRequest customerRequest = new GetCustomerRequest();
@@ -45,7 +44,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer")]
     [HttpPost]
     public ActionResult<CustomerDetailView> Detail(CustomerView customerView) {
       ModifyCustomerRequest request = new ModifyCustomerRequest();
@@ -67,7 +65,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer/deliveryaddress")]
     [HttpGet]
     public ActionResult<CustomerDetailView> DeliveryAddresses() {
       GetCustomerRequest customerRequest = new GetCustomerRequest();
@@ -85,7 +82,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer/deliveryaddress/edit")]
     [HttpGet("{deliverAddressId}")]
     public ActionResult<CustomerDeliveryAddressView> EditDeliveryAddress(int deliveryAddressId) {
       var customerRequest = new GetCustomerRequest();
@@ -104,7 +100,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer/deliveryaddress/edit")]
     [HttpPost]
     public ActionResult EditDeliveryAddress(DeliveryAddressView deliveryAddressView) {
       var request = new DeliveryAddressModifyRequest();
@@ -118,7 +113,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer/deliveryaddress/add")]
     [HttpPost]
     public ActionResult<CustomerDeliveryAddressView> AddDeliveryAddress() {
       var customerDeliveryAddressView = new CustomerDeliveryAddressView();
@@ -130,7 +124,6 @@ namespace Agathas.Storefront.API.Controllers {
     }
 
     [Authorize]
-    [Route("api/customer/deliveryaddress/add")]
     [HttpPost]
     public ActionResult AddDeliveryAddress(DeliveryAddressView deliveryAddressView) {
       var request = new DeliveryAddressAddRequest();

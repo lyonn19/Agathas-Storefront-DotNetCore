@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
-    namespace="Agathas.Storefront.Model.Products"
-        assembly="Agathas.Storefront.Model">
+    namespace="Agathas.Storefront.Models.Products"
+        assembly="Agathas.Storefront.Models">
 
   <class name="ProductTitle" table="ProductTitles" lazy="false" >
 
@@ -30,7 +30,7 @@
 					  />
 
     <many-to-one name="Category"
-                      class="Agathas.Storefront.Model.Categories.Category"
+                      class="Agathas.Storefront.Models.Categories.Category"
                       column="CategoryId"
                       not-null="true"
                       lazy="false"

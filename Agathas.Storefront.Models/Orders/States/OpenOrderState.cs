@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain.Events;
-using Agathas.Storefront.Model.Orders.Events;
+using Agathas.Storefront.Models.Orders.Events;
 
-namespace Agathas.Storefront.Model.Orders.States
+namespace Agathas.Storefront.Models.Orders.States
 {
     public class OpenOrderState : OrderState
     {

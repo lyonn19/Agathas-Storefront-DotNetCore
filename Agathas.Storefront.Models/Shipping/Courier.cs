@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model.Shipping
+namespace Agathas.Storefront.Models.Shipping
 {
     public class Courier : EntityBase<int>
     {

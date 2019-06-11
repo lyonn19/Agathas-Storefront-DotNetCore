@@ -4,9 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Customer_Specs {
+namespace Agathas.Storefront.Models.Tests.Customer_Specs {
   [TestFixture]
   public class When_adding_a_valid_address_to_a_customer : with_a_valid_customer  {
     private DeliveryAddress _address;

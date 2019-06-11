@@ -4,9 +4,9 @@ using System.Linq;
 using NUnit.Framework;
 using FluentAssertions;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Delivery_Address_Specs {
+namespace Agathas.Storefront.Models.Tests.Delivery_Address_Specs {
   [TestFixture]
   public class When_creating_a_deliveryaddress_with_a_null_customer : DeliveryAddress {
     [Test]

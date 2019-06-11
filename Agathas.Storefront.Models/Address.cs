@@ -2,7 +2,7 @@
 
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model {
+namespace Agathas.Storefront.Models {
   public class Address : EntityBase<int> {
     public string AddressLine1 { get; set; }
     public string AddressLine2 { get; set; }

@@ -1,7 +1,7 @@
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 using NUnit.Framework;
 
-namespace Agathas.Storefront.Model.Tests.Customer_Specs {
+namespace Agathas.Storefront.Models.Tests.Customer_Specs {
   [TestFixture]
   public abstract class with_a_valid_customer {
     [SetUp]

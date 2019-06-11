@@ -2,9 +2,9 @@ using System;
 
 using NUnit.Framework;
 
-using Agathas.Storefront.Model.Customers;
+using Agathas.Storefront.Models.Customers;
 
-namespace Agathas.Storefront.Model.Tests.Delivery_Address_Specs {
+namespace Agathas.Storefront.Models.Tests.Delivery_Address_Specs {
   [TestFixture]
   public abstract class with_a_valid_delivery_address {
     [SetUp]

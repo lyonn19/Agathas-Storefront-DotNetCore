@@ -8,7 +8,7 @@ using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.API.Controllers {
-  [Route("api/productcatalog")]
+  [ApiController]
   public class ProductCatalogBaseController : BaseController {
     private readonly IProductCatalogService _productCatalogService;
 
@@ -18,6 +18,7 @@ namespace Agathas.Storefront.API.Controllers {
       _productCatalogService = productCatalogService;
     }
 
+    [HttpGet("categories")]
     public IEnumerable<CategoryView> GetCategories() {
       var response = _productCatalogService.GetAllCategories();
       return response.Categories;

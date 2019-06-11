@@ -13,7 +13,8 @@ using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 using Agathas.Storefront.Services.ViewModels;
 
 namespace Agathas.Storefront.API.Controllers {
-  [ApiController]
+  
+  [Route("api/product")]
   public class ProductController : ProductCatalogBaseController {
     private readonly IProductCatalogService _productService;
 

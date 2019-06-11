@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-using Agathas.Storefront.Infrastructure.Configuration;
+﻿using System.Reflection;
 
 using log4net;
 using log4net.Config;
+
+using Agathas.Storefront.Infrastructure.Configuration;
 
 namespace Agathas.Storefront.Infrastructure.Logging {
   public class Log4NetAdapter : ILogger {

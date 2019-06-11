@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Web = Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Categories;
+using Agathas.Storefront.Models.Categories;
 
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
   public class CategoryRepository : Repository<Category, int>, ICategoryRepository {
-    private readonly Web.IHttpContextAccessor _context;
+    private readonly IHttpContextAccessor _context;
   
-    public CategoryRepository(IUnitOfWork uow, Web.IHttpContextAccessor context)
+    public CategoryRepository(IUnitOfWork uow, IHttpContextAccessor context)
       : base(uow, context) { }
   }
 }

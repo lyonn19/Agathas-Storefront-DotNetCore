@@ -6,7 +6,7 @@ using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.ProductCatalogService;
 
 namespace Agathas.Storefront.API.Controllers { 
-  [ApiController]
+  [Route("api/home")]
   public class HomeController : ProductCatalogBaseController {
     private readonly IProductCatalogService _productCatalogService;
 
@@ -16,7 +16,6 @@ namespace Agathas.Storefront.API.Controllers {
       _productCatalogService = productCatalogService;
     }
     
-    [Route("api/home")]
     [HttpGet]
     public ActionResult<HomePageView> Index() {
       var homePageView = new HomePageView();

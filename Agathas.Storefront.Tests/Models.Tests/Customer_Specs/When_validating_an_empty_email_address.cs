@@ -1,9 +1,9 @@
-﻿using Agathas.Storefront.Model.Customers;
+﻿using Agathas.Storefront.Models.Customers;
 
 using NUnit.Framework;
 using FluentAssertions;
 
-namespace Agathas.Storefront.Model.Tests.Customer_Specs {
+namespace Agathas.Storefront.Models.Tests.Customer_Specs {
   [TestFixture()]
   public class When_validating_an_empty_email_address {
     private string _blankEmailAddress;

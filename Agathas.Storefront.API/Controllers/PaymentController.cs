@@ -12,6 +12,7 @@ using Agathas.Storefront.Services.Messaging.OrderService;
 
 namespace Agathas.Storefront.API.Controllers {
   [ApiController]
+  [Route("api/payment")]
   public class PaymentController : ControllerBase {
     private readonly IPaymentService _paymentService;
     private readonly IOrderService _orderService;
@@ -22,7 +23,6 @@ namespace Agathas.Storefront.API.Controllers {
       _orderService = orderService;
     }
     
-    [Route("api/payment")]
     [HttpPost]
     public void PaymentCallBack(FormCollection collection) {
       int orderId = _paymentService.GetOrderIdFor(collection);
@@ -50,7 +50,6 @@ namespace Agathas.Storefront.API.Controllers {
       }
     }
 
-    [Route("api/payment/create")]
     [HttpGet("{orderId)}")]
     public ActionResult<PaymentPostData> CreatePaymentFor(int orderId) {
       var request = new GetOrderRequest() { OrderId = orderId };
@@ -65,10 +64,10 @@ namespace Agathas.Storefront.API.Controllers {
       return paymentPostData;
     }
 
-    [Route("api/payment/complete")]
-    [HttpGet]public ActionResult<string> PaymentComplete() { return "Payment complete."; }
+    [HttpGet]
+    public ActionResult<string> PaymentComplete() { return "Payment complete."; }
 
-    [Route("api/payment/cancel")]
-    [HttpGet]public ActionResult<string> PaymentCancel() { return "Payment cancelled."; }
+    [HttpGet]
+    public ActionResult<string> PaymentCancel() { return "Payment cancelled."; }
   }
 }

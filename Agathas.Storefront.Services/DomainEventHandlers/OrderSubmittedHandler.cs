@@ -5,7 +5,7 @@ using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain.Events;
 using Agathas.Storefront.Infrastructure.Email;
-using Agathas.Storefront.Model.Orders.Events;
+using Agathas.Storefront.Models.Orders.Events;
 
 namespace Agathas.Storefront.Services.DomainEventHandlers {
   public class OrderSubmittedHandler : IDomainEventHandler<OrderSubmittedEvent> {

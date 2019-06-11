@@ -1,17 +1,19 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System;
+using System.Linq;
+
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-
-using System;
-using System.Linq;
+using AutoMapper;
 
 namespace Agathas.Storefront.API {
   public class Startup {
@@ -27,9 +29,29 @@ namespace Agathas.Storefront.API {
       services.AddResponseCompression();
       services.AddResponseCaching();
       services.AddHealthChecks();
+      services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+          .AddCookie(options => {
+            options.LoginPath = "/api/account/logon";
+            options.LogoutPath = "/api/account/signout";
+          });
       services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();  // needed for injecting dependency
-      services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2); 
+     
+      ConfigureAutoMapper(ref services);       
+       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2); 
 
+      return ConfigureIoCContainer(ref services);
+    }
+
+    private void ConfigureAutoMapper(ref IServiceCollection services) {
+      var mappingCfg = new MapperConfiguration( cfg => {
+        cfg.AddProfile(new Services.AutoMapperBootStrapper());
+      });
+
+      var mapper = mappingCfg.CreateMapper();
+      services.AddSingleton(mapper);
+    }
+
+    private AutofacServiceProvider ConfigureIoCContainer(ref IServiceCollection services){
       var containerBuilder = new ContainerBuilder();
       containerBuilder.RegisterModule<AutofacModule>();
       containerBuilder.Populate(services);
@@ -49,6 +71,7 @@ namespace Agathas.Storefront.API {
       app.UseResponseCaching();
       app.UseStaticFiles();
       app.UseHttpsRedirection();
+      app.UseAuthentication();
       app.UseMvc();
     }
   }

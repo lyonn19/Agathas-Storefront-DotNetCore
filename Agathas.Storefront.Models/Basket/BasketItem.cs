@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 
 using Agathas.Storefront.Infrastructure.Domain;
-using Agathas.Storefront.Model.Products;
+using Agathas.Storefront.Models.Products;
 
-namespace Agathas.Storefront.Model.Basket {
+namespace Agathas.Storefront.Models.Basket {
     public class BasketItem : EntityBase<int> {
     private int _qty;
     private Product _product;

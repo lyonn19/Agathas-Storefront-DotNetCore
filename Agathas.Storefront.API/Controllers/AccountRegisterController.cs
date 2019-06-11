@@ -14,26 +14,26 @@ using Agathas.Storefront.Services.Interfaces;
 using Agathas.Storefront.Services.Messaging.CustomerService;
 
 namespace Agathas.Storefront.API.Controllers {
-    public class AccountRegisterController : BaseAccountController {
-      public AccountRegisterController(
-              ILocalAuthenticationService authenticationService,
-              ICustomerService customerService,
-              IExternalAuthenticationService
-                                  externalAuthenticationService,
-              IFormsAuthentication formsAuthentication,
-              IActionArguments actionArguments) : base(
-                                                      authenticationService, customerService,
-                                                      externalAuthenticationService,
-                                                      formsAuthentication, actionArguments) {}
+    
+  [Route("api/register")]
+  public class AccountRegisterController : BaseAccountController {
+    public AccountRegisterController(
+            ILocalAuthenticationService authenticationService,
+            ICustomerService customerService,
+            IExternalAuthenticationService
+                                externalAuthenticationService,
+            IFormsAuthentication formsAuthentication,
+            IActionArguments actionArguments) : base(
+                                                    authenticationService, customerService,
+                                                    externalAuthenticationService,
+                                                    formsAuthentication, actionArguments) {}
 
-    [Route("api/account/register")]
     [HttpGet]
     public ActionResult<AccountView> Register() {
       AccountView accountView = InitializeAccountViewWithIssue(false, string.Empty);
       return accountView;
     }
 
-    [Route("api/account/register")]
     [HttpPost]
     public ActionResult<AccountView> Register(FormCollection collection) {
       //note: w.sams - try serializing in JS the formcollection first before posting.
@@ -63,7 +63,7 @@ namespace Agathas.Storefront.API.Controllers {
           _formsAuthentication.SetAuthenticationToken(user.AuthenticationToken);
           _customerService.CreateCustomer(createCustomerRequest);
 
-          return RedirectToAction("Detail", "Customer");
+          return Redirect("/api/customer/detail");
         }
         catch (CustomerInvalidException ex) {
           AccountView accountView = InitializeAccountViewWithIssue( true, ex.Message);
@@ -77,7 +77,6 @@ namespace Agathas.Storefront.API.Controllers {
       }
     }
 
-    [Route("api/account/receivetokenandregister")]
     [HttpGet("{token}/{returnUrl}")]
     public ActionResult<AccountView> ReceiveTokenAndRegister(string token, string returnUrl) {
       User user = _externalAuthenticationService.GetUserDetailsFrom(token);
@@ -94,11 +93,12 @@ namespace Agathas.Storefront.API.Controllers {
 
         _customerService.CreateCustomer(createCustomerRequest);
 
-        return RedirectBasedOn(returnUrl);
+        return Redirect(returnUrl);
       } else {
         AccountView accountView = InitializeAccountViewWithIssue(true,
                 "Sorry we could not authenticate you.");
-        accountView.CallBackSettings.ReturnUrl = GetReturnActionFrom(returnUrl).ToString();
+        accountView.CallBackSettings.ReturnUrl = 
+            ActionArguments.GetReturnActionFrom(returnUrl).ToString();
 
         return accountView;
       }
@@ -112,7 +112,8 @@ namespace Agathas.Storefront.API.Controllers {
       accountView.Message = message;
 
       string returnUrl = _actionArguments.GetValueForArgument(ActionArgumentKey.ReturnUrl);
-      accountView.CallBackSettings.ReturnUrl = GetReturnActionFrom(returnUrl).ToString();
+      accountView.CallBackSettings.ReturnUrl = 
+          ActionArguments.GetReturnActionFrom(returnUrl).ToString();
 
       return accountView;
     }

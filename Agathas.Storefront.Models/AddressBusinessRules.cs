@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Agathas.Storefront.Infrastructure.Domain;
 
-namespace Agathas.Storefront.Model
+namespace Agathas.Storefront.Models
 {
     public class AddressBusinessRules
     {
