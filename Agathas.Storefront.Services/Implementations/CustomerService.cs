@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Models.Customers;
@@ -15,11 +16,11 @@ using Agathas.Storefront.Services.ViewModels;
 namespace Agathas.Storefront.Services.Implementations {
   public class CustomerService : ICustomerService {
     private readonly ICustomerRepository _customerRepository;
-    private readonly IUnitOfWork _uow;
+    private readonly IUnitOfWork<IHttpContextAccessor> _uow;
     private readonly IMapper _mapper;
 
     public CustomerService(ICustomerRepository customerRepository,
-                            IUnitOfWork uow, IMapper mapper) {
+                            IUnitOfWork<IHttpContextAccessor> uow, IMapper mapper) {
       _customerRepository = customerRepository;
       _uow = uow;
       _mapper = mapper;

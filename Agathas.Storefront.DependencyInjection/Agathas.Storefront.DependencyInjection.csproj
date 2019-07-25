@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.9.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Agathas.Storefront.Models\Agathas.Storefront.Models.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.Infrastructure\Agathas.Storefront.Infrastructure.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.Services\Agathas.Storefront.Services.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.Services.Cache\Agathas.Storefront.Services.Cache.csproj" />
+    <ProjectReference Include="..\Agathas.Storefront.Repository.NHibernate\Agathas.Storefront.Repository.NHibernate.csproj" />
+  </ItemGroup>
+
+</Project>

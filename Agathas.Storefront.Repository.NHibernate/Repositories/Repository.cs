@@ -8,17 +8,15 @@ using Agathas.Storefront.Infrastructure.Querying;
 using Agathas.Storefront.Repository.NHibernate.SessionStorage;
 
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
-  public abstract class Repository<T, TEntityKey> where T : IAggregateRoot {
-    private IUnitOfWork _uow;
-    private Web.IHttpContextAccessor _context;
+  public abstract class Repository<T, TEntityKey> where T : class, IAggregateRoot {
+    protected IUnitOfWork<Web.IHttpContextAccessor> _uow;  // protected so we can expose to SessionFactory in derived classes.
 
-    public Repository(IUnitOfWork uow, Web.IHttpContextAccessor context) {
+    public Repository(IUnitOfWork<Web.IHttpContextAccessor> uow) {
       this._uow = uow;
-      this._context = context;
     }
 
     private NH.ISession GetCurrentSession (){
-      return SessionFactory.GetCurrentSession(_context);
+      return SessionFactory.GetCurrentSession(this._uow.Context);
     }
 
     public void Add(T entity) { GetCurrentSession().Save(entity); }

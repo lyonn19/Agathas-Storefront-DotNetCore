@@ -3,15 +3,15 @@ using Microsoft.Extensions.DependencyInjection;
 
 using Autofac;
 using Autofac.Features.ResolveAnything;
-
 using NHibernate;
+using Microsoft.AspNetCore.Http;
 //using FluentNHibernate.Automapping;
 //using FluentNHibernate.Cfg;
 //using FluentNHibernate.Cfg.Db;
 
 using Agathas.Storefront.Repository.NHibernate;
 using NHRepos = Agathas.Storefront.Repository.NHibernate.Repositories;
-using Agathas.Storefront.Controllers.ActionArguments;
+//using Agathas.Storefront.Controllers.ActionArguments;
 using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Infrastructure.Domain.Events;
 using Agathas.Storefront.Infrastructure.Authentication;
@@ -34,7 +34,7 @@ using Agathas.Storefront.Infrastructure.Email;
 
 using log4net;
 
-namespace Agathas.Storefront.API {
+namespace Agathas.Storefront.DependencyInjection {
   public class AutofacModule : Module {
     protected override void Load(ContainerBuilder builder) {
       // Repositories
@@ -45,7 +45,7 @@ namespace Agathas.Storefront.API {
       builder.RegisterType<NHRepos.CategoryRepository>().As<ICategoryRepository>().InstancePerLifetimeScope();
       builder.RegisterType<NHRepos.ProductTitleRepository>().As<IProductTitleRepository>().InstancePerLifetimeScope();
       builder.RegisterType<NHRepos.ProductRepository>().As<IProductRepository>().InstancePerLifetimeScope();
-      builder.RegisterType<NHUnitOfWork>().As<IUnitOfWork>().InstancePerLifetimeScope();
+      builder.RegisterType<NHUnitOfWork>().As<IUnitOfWork<IHttpContextAccessor>>().InstancePerLifetimeScope();
 
       // Order Service
       builder.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
@@ -82,7 +82,7 @@ namespace Agathas.Storefront.API {
       builder.RegisterType<AspFormsAuthentication>().As<IFormsAuthentication>().InstancePerLifetimeScope();
       
       // Controller Helpers
-      builder.RegisterType<HttpRequestActionArguments>().As<IActionArguments>().InstancePerLifetimeScope();
+      //builder.RegisterType<HttpRequestActionArguments>().As<IActionArguments>().InstancePerLifetimeScope();
     }
   }
 }

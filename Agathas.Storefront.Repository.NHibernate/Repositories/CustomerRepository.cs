@@ -13,14 +13,11 @@ using Agathas.Storefront.Repository.NHibernate.SessionStorage;
 
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
   public class CustomerRepository : Repository<Customer, int>,
-                                          ICustomerRepository {
-    private readonly IHttpContextAccessor _context;
-    
-    public CustomerRepository(IUnitOfWork uow, IHttpContextAccessor context)
-      : base(uow, context) { }
+                                          ICustomerRepository {    
+    public CustomerRepository(IUnitOfWork<IHttpContextAccessor> uow) : base(uow) { }
 
     public Customer FindBy(string identityToken) {
-      ICriteria criteriaQuery = SessionFactory.GetCurrentSession(_context)
+      ICriteria criteriaQuery = SessionFactory.GetCurrentSession(base._uow.Context)
                 .CreateCriteria(typeof(Customer))
                 .Add(Expression.Eq(PropertyNameHelper
                 .ResolvePropertyName<Customer>

@@ -6,10 +6,7 @@ using Agathas.Storefront.Models.Products;
 
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
   public class ProductRepository : Repository<Product, int>, IProductRepository {
-    private readonly IHttpContextAccessor _context;
-
-    public ProductRepository(IUnitOfWork uow, IHttpContextAccessor context)
-      : base(uow, context) { }
+    public ProductRepository(IUnitOfWork<IHttpContextAccessor> uow) : base(uow) { }
 
     public override void AppendCriteria(ICriteria criteria) {
       criteria.CreateAlias("Title", "ProductTitle");

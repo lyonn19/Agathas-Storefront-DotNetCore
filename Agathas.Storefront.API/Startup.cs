@@ -15,6 +15,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 
+using Agathas.Storefront.DependencyInjection;
+
 namespace Agathas.Storefront.API {
   public class Startup {
     public IConfiguration Configuration { get; }

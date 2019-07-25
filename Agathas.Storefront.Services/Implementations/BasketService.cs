@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Models.Basket;
@@ -19,13 +20,13 @@ namespace Agathas.Storefront.Services.Implementations {
     private readonly IBasketRepository _basketRepository;
     private readonly IProductRepository _productRepository;
     private readonly IDeliveryOptionRepository _deliveryOptionRepository;
-    private readonly IUnitOfWork _uow;
+    private readonly IUnitOfWork<IHttpContextAccessor> _uow;
     private readonly IMapper _mapper;
 
     public BasketService(IBasketRepository basketRepository,
             IProductRepository productRepository,
             IDeliveryOptionRepository deliveryOptionRepository,
-            IUnitOfWork uow,
+            IUnitOfWork<IHttpContextAccessor> uow,
             IMapper mapper) {
       _basketRepository = basketRepository;
       _productRepository = productRepository;

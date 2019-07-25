@@ -24,7 +24,6 @@ namespace Agathas.Storefront.API.Controllers {
       _productService = productService;
     }
     
-    [Route("api/product")]
     [HttpGet("{categoryId}")]
     public ActionResult<ProductSearchResultView> GetProductsByCategory(int categoryId) {
       var productSearchRequest = GenerateInitialProductSearchRequestFrom(categoryId);

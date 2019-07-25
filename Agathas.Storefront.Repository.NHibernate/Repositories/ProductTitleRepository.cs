@@ -6,9 +6,7 @@ using Agathas.Storefront.Models.Products;
 namespace Agathas.Storefront.Repository.NHibernate.Repositories {
   public class ProductTitleRepository : Repository<ProductTitle, int>,
                                                         IProductTitleRepository {
-    private readonly IHttpContextAccessor _context;
 
-    public ProductTitleRepository(IUnitOfWork uow, IHttpContextAccessor context)
-      : base(uow, context) { }
+    public ProductTitleRepository(IUnitOfWork<IHttpContextAccessor> uow) : base(uow) { }
   }
 }

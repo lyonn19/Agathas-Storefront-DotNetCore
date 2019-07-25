@@ -2,6 +2,7 @@
 using System.Linq;
 
 using AutoMapper;
+using Microsoft.AspNetCore.Http;
 
 using Agathas.Storefront.Infrastructure.Domain;
 using Agathas.Storefront.Infrastructure.Logging;
@@ -17,13 +18,13 @@ namespace Agathas.Storefront.Services.Implementations {
     private readonly ICustomerRepository _customerRepository;
     private readonly IOrderRepository _orderRepository;
     private readonly IBasketRepository _basketRepository;
-    private readonly IUnitOfWork _uow;
+    private readonly IUnitOfWork<IHttpContextAccessor> _uow;
     private readonly IMapper _mapper;
 
     public OrderService(IOrderRepository orderRepository,
                         IBasketRepository basketRepository,
                         ICustomerRepository customerRepository,
-                        IUnitOfWork uow, IMapper mapper) {
+                        IUnitOfWork<IHttpContextAccessor> uow, IMapper mapper) {
       _customerRepository = customerRepository;
       _orderRepository = orderRepository;
       _basketRepository = basketRepository;
